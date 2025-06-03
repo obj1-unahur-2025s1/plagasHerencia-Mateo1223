@@ -18,9 +18,9 @@ class Huerta{
 
     method recbirAtaque(plaga) {
       if (plaga.transmite()){
-        produccion -= 10
+        produccion = (produccion - 10).max(0)
       }
-      produccion -= plaga.daño() * 0.10
+      produccion = (produccion - plaga.daño() * 0.10).max(0)
     }
 }
 
@@ -35,7 +35,7 @@ class Mascota{
 
     method recibirAtaque(plaga) {
       if (plaga.transmite()){
-        nivelSalud -= plaga.daño()
+        nivelSalud = (nivelSalud - plaga.daño()).max(0)
       }
     }
 }
