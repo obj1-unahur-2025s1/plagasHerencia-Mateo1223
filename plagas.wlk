@@ -8,6 +8,7 @@ class Plaga{
 
     method atacar(elemento) {
       elemento.recbirAtaque(self)
+      poblacion += poblacion * 0.10
     }
 }
 
@@ -25,16 +26,11 @@ class Cucarachas inherits Plaga{
 
 class Pulgas inherits Plaga{
     override method daño() = super() * 2
-
-    override method atacar(elemento) {
-      super(elemento)
-      poblacion += poblacion * 0.10
-    }
 }
 
 class Garrapatas inherits Pulgas{
     override method atacar(elemento) {
-      super(elemento)
+      elemento.recbirAtaque(self)
       poblacion += poblacion * 0.20
     }
 }
